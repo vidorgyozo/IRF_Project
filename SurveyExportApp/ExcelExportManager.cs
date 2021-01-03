@@ -144,5 +144,10 @@ namespace SurveyExportApp
             Answers = null;
             Images = null;
         }
+
+        public bool isInitialized()
+        {
+            return excApp != null;
+        }
     }
 }

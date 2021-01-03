@@ -39,6 +39,7 @@ namespace SurveyExportApp
             this.avgLabel2 = new System.Windows.Forms.Label();
             this.calcAvgButton = new System.Windows.Forms.Button();
             this.avgResultLabel = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagesDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -129,11 +130,21 @@ namespace SurveyExportApp
             this.avgResultLabel.Size = new System.Drawing.Size(0, 13);
             this.avgResultLabel.TabIndex = 9;
             // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(1002, 525);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(94, 38);
+            this.closeButton.TabIndex = 10;
+            this.closeButton.Text = "Close Excel";
+            this.closeButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 575);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.avgResultLabel);
             this.Controls.Add(this.calcAvgButton);
             this.Controls.Add(this.avgLabel2);
@@ -165,6 +176,7 @@ namespace SurveyExportApp
         private System.Windows.Forms.Label avgLabel2;
         private System.Windows.Forms.Button calcAvgButton;
         private System.Windows.Forms.Label avgResultLabel;
+        private System.Windows.Forms.Button closeButton;
     }
 }
 

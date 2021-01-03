@@ -30,7 +30,7 @@ namespace SurveyExportApp
             }
             set
             {
-                if (value == null && excelManager != null)
+                if (value == null && excelManager != null && excelManager.isInitialized())
                 {
                     excelManager.Reset();
                 }
@@ -52,6 +52,12 @@ namespace SurveyExportApp
             exportButton.Click += ExportButton_Click;
             regionBox.DataSource = Enum.GetValues(typeof(RegionEnum));
             calcAvgButton.Click += CalcAvgButton_Click;
+            closeButton.Click += CloseButton_Click;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            ExcelManager = null;
         }
 
         private void CalcAvgButton_Click(object sender, EventArgs e)
