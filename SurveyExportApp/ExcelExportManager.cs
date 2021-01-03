@@ -82,8 +82,40 @@ namespace SurveyExportApp
                 "Megjegyzés",
                 "Válaszadás időpontja"
             };
+            Excel.Range headerRange = excWS.get_Range(GetCell(1, 1), GetCell(headers.Length, 1));
+            headerRange.Value2 = headers;
 
-            excWS.get_Range(GetCell(1,1), GetCell(headers.Length,1)).Value2 = headers;
+            object[,] imagesAndAnswers = new object[imageAnswerJoinQuery.Count(), headers.Length];
+            int iteration = 0;
+            foreach (var imgAns in imageAnswerJoinQuery)
+            {
+                imagesAndAnswers[iteration, 0] = imgAns.ImageId;
+                imagesAndAnswers[iteration, 1] = imgAns.PatientId;
+                imagesAndAnswers[iteration, 2] = imgAns.Region;
+                imagesAndAnswers[iteration, 3] = imgAns.NameId;
+                imagesAndAnswers[iteration, 4] = imgAns.Answer;
+                imagesAndAnswers[iteration, 5] = imgAns.Comment;
+                imagesAndAnswers[iteration, 6] = imgAns.Timestamp;
+                iteration++;
+            }
+
+            Excel.Range dataRange = excWS.get_Range(GetCell(1, 2), GetCell(headers.Length, 1 + imagesAndAnswers.GetLength(1)));
+            dataRange.Value2 = imagesAndAnswers;
+
+            Excel.Range dateRange = excWS.get_Range(GetCell(headers.Length, 2), GetCell(headers.Length, 1 + imagesAndAnswers.GetLength(1)));
+            dateRange.NumberFormat = "YYYY-MM-DD HH:mm:ss";
+
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            dataRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range commentRange = excWS.get_Range(GetCell(6, 2), GetCell(6, 1 + imagesAndAnswers.GetLength(1)));
+            commentRange.Font.Italic = true;
         }
 
         private string GetCell(int x, int y)
