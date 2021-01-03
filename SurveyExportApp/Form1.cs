@@ -49,6 +49,11 @@ namespace SurveyExportApp
 
             LoadData();
 
+            exportButton.Click += ExportButton_Click;
+        }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
             ExcelManager.ExportSurveyAnswersJoined(Answers, Images);
         }
 
@@ -56,6 +61,9 @@ namespace SurveyExportApp
         {
             Answers = context.SurveyAnswers.ToList();
             Images = context.Images.ToList();
+
+            answersDataGrid.DataSource = Answers;
+            imagesDataGrid.DataSource = Images;
         }
     }
 }

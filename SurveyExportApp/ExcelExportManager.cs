@@ -99,10 +99,10 @@ namespace SurveyExportApp
                 iteration++;
             }
 
-            Excel.Range dataRange = excWS.get_Range(GetCell(1, 2), GetCell(headers.Length, 1 + imagesAndAnswers.GetLength(1)));
+            Excel.Range dataRange = excWS.get_Range(GetCell(1, 2), GetCell(headers.Length, 1 + imagesAndAnswers.GetLength(0)));
             dataRange.Value2 = imagesAndAnswers;
 
-            Excel.Range dateRange = excWS.get_Range(GetCell(headers.Length, 2), GetCell(headers.Length, 1 + imagesAndAnswers.GetLength(1)));
+            Excel.Range dateRange = excWS.get_Range(GetCell(headers.Length, 2), GetCell(headers.Length, 1 + imagesAndAnswers.GetLength(0)));
             dateRange.NumberFormat = "YYYY-MM-DD HH:mm:ss";
 
             headerRange.Font.Bold = true;
@@ -114,7 +114,7 @@ namespace SurveyExportApp
 
             dataRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
-            Excel.Range commentRange = excWS.get_Range(GetCell(6, 2), GetCell(6, 1 + imagesAndAnswers.GetLength(1)));
+            Excel.Range commentRange = excWS.get_Range(GetCell(6, 2), GetCell(6, 1 + imagesAndAnswers.GetLength(0)));
             commentRange.Font.Italic = true;
         }
 
