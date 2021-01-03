@@ -124,7 +124,7 @@ namespace SurveyExportApp
             // avgResultLabel
             // 
             this.avgResultLabel.AutoSize = true;
-            this.avgResultLabel.Location = new System.Drawing.Point(346, 506);
+            this.avgResultLabel.Location = new System.Drawing.Point(345, 502);
             this.avgResultLabel.Name = "avgResultLabel";
             this.avgResultLabel.Size = new System.Drawing.Size(0, 13);
             this.avgResultLabel.TabIndex = 9;

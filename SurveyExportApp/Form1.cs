@@ -56,7 +56,7 @@ namespace SurveyExportApp
 
         private void CalcAvgButton_Click(object sender, EventArgs e)
         {
-            avgResultLabel.Text = AverageCalculator.CalculateAverageOfRegion(Answers, (RegionEnum)regionBox.SelectedItem).ToString();
+            avgResultLabel.Text = AverageCalculator.CalculateAverageOfRegion(Answers, Images, (RegionEnum)regionBox.SelectedItem).ToString();
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
