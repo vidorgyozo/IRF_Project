@@ -15,12 +15,41 @@ namespace SurveyExportApp
         IRF_PROJECT_DB_COPYEntities context = new IRF_PROJECT_DB_COPYEntities();
         List<SurveyAnswer> Answers;
         List<Image> Images;
-        
+
+        private ExcelExportManager excelManager;
+
+        public ExcelExportManager ExcelManager
+        {
+            get
+            {
+                if (excelManager == null)
+                {
+                    excelManager = new ExcelExportManager();
+                }
+                return excelManager;
+            }
+            set
+            {
+                if (value == null && excelManager != null)
+                {
+                    excelManager.Reset();
+                }
+                else
+                {
+                    excelManager = value;
+                };
+            }
+        }
+
+
 
         public Form1()
         {
             InitializeComponent();
+
             LoadData();
+
+            ExcelManager.ExportSurveyAnswersJoined(Answers, Images);
         }
 
         private void LoadData()
