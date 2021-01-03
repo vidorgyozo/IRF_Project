@@ -50,6 +50,13 @@ namespace SurveyExportApp
             LoadData();
 
             exportButton.Click += ExportButton_Click;
+            regionBox.DataSource = Enum.GetValues(typeof(RegionEnum));
+            calcAvgButton.Click += CalcAvgButton_Click;
+        }
+
+        private void CalcAvgButton_Click(object sender, EventArgs e)
+        {
+            avgResultLabel.Text = AverageCalculator.CalculateAverageOfRegion(Answers, (RegionEnum)regionBox.SelectedItem).ToString();
         }
 
         private void ExportButton_Click(object sender, EventArgs e)

@@ -35,6 +35,10 @@ namespace SurveyExportApp
             this.answerLabel = new System.Windows.Forms.Label();
             this.imageLabel = new System.Windows.Forms.Label();
             this.regionBox = new System.Windows.Forms.ComboBox();
+            this.avgLabel = new System.Windows.Forms.Label();
+            this.avgLabel2 = new System.Windows.Forms.Label();
+            this.calcAvgButton = new System.Windows.Forms.Button();
+            this.avgResultLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.answersDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagesDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -44,15 +48,15 @@ namespace SurveyExportApp
             this.answersDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.answersDataGrid.Location = new System.Drawing.Point(12, 36);
             this.answersDataGrid.Name = "answersDataGrid";
-            this.answersDataGrid.Size = new System.Drawing.Size(769, 428);
+            this.answersDataGrid.Size = new System.Drawing.Size(721, 428);
             this.answersDataGrid.TabIndex = 0;
             // 
             // imagesDataGrid
             // 
             this.imagesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.imagesDataGrid.Location = new System.Drawing.Point(800, 36);
+            this.imagesDataGrid.Location = new System.Drawing.Point(751, 36);
             this.imagesDataGrid.Name = "imagesDataGrid";
-            this.imagesDataGrid.Size = new System.Drawing.Size(418, 428);
+            this.imagesDataGrid.Size = new System.Drawing.Size(467, 428);
             this.imagesDataGrid.TabIndex = 1;
             // 
             // exportButton
@@ -67,7 +71,7 @@ namespace SurveyExportApp
             // answerLabel
             // 
             this.answerLabel.AutoSize = true;
-            this.answerLabel.Location = new System.Drawing.Point(13, 17);
+            this.answerLabel.Location = new System.Drawing.Point(9, 17);
             this.answerLabel.Name = "answerLabel";
             this.answerLabel.Size = new System.Drawing.Size(47, 13);
             this.answerLabel.TabIndex = 3;
@@ -76,7 +80,7 @@ namespace SurveyExportApp
             // imageLabel
             // 
             this.imageLabel.AutoSize = true;
-            this.imageLabel.Location = new System.Drawing.Point(800, 17);
+            this.imageLabel.Location = new System.Drawing.Point(748, 17);
             this.imageLabel.Name = "imageLabel";
             this.imageLabel.Size = new System.Drawing.Size(41, 13);
             this.imageLabel.TabIndex = 4;
@@ -85,16 +89,55 @@ namespace SurveyExportApp
             // regionBox
             // 
             this.regionBox.FormattingEnabled = true;
-            this.regionBox.Location = new System.Drawing.Point(12, 506);
+            this.regionBox.Location = new System.Drawing.Point(172, 499);
             this.regionBox.Name = "regionBox";
             this.regionBox.Size = new System.Drawing.Size(121, 21);
             this.regionBox.TabIndex = 5;
+            // 
+            // avgLabel
+            // 
+            this.avgLabel.AutoSize = true;
+            this.avgLabel.Location = new System.Drawing.Point(13, 502);
+            this.avgLabel.Name = "avgLabel";
+            this.avgLabel.Size = new System.Drawing.Size(153, 13);
+            this.avgLabel.TabIndex = 6;
+            this.avgLabel.Text = "Average of image ratings in the";
+            // 
+            // avgLabel2
+            // 
+            this.avgLabel2.AutoSize = true;
+            this.avgLabel2.Location = new System.Drawing.Point(300, 502);
+            this.avgLabel2.Name = "avgLabel2";
+            this.avgLabel2.Size = new System.Drawing.Size(39, 13);
+            this.avgLabel2.TabIndex = 7;
+            this.avgLabel2.Text = "region:";
+            // 
+            // calcAvgButton
+            // 
+            this.calcAvgButton.Location = new System.Drawing.Point(264, 526);
+            this.calcAvgButton.Name = "calcAvgButton";
+            this.calcAvgButton.Size = new System.Drawing.Size(75, 23);
+            this.calcAvgButton.TabIndex = 8;
+            this.calcAvgButton.Text = "Calculate";
+            this.calcAvgButton.UseVisualStyleBackColor = true;
+            // 
+            // avgResultLabel
+            // 
+            this.avgResultLabel.AutoSize = true;
+            this.avgResultLabel.Location = new System.Drawing.Point(346, 506);
+            this.avgResultLabel.Name = "avgResultLabel";
+            this.avgResultLabel.Size = new System.Drawing.Size(0, 13);
+            this.avgResultLabel.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 575);
+            this.Controls.Add(this.avgResultLabel);
+            this.Controls.Add(this.calcAvgButton);
+            this.Controls.Add(this.avgLabel2);
+            this.Controls.Add(this.avgLabel);
             this.Controls.Add(this.regionBox);
             this.Controls.Add(this.imageLabel);
             this.Controls.Add(this.answerLabel);
@@ -118,6 +161,10 @@ namespace SurveyExportApp
         private System.Windows.Forms.Label answerLabel;
         private System.Windows.Forms.Label imageLabel;
         private System.Windows.Forms.ComboBox regionBox;
+        private System.Windows.Forms.Label avgLabel;
+        private System.Windows.Forms.Label avgLabel2;
+        private System.Windows.Forms.Button calcAvgButton;
+        private System.Windows.Forms.Label avgResultLabel;
     }
 }
 
