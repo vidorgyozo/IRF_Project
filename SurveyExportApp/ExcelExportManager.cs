@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SurveyExportApp
 {
@@ -110,12 +111,23 @@ namespace SurveyExportApp
             headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
             headerRange.EntireColumn.AutoFit();
             headerRange.RowHeight = 40;
+
+            headerRange.Borders.Color = Color.Black;
             headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
+            dataRange.Borders.Color = Color.Black;
             dataRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
             Excel.Range commentRange = excWS.get_Range(GetCell(6, 2), GetCell(6, 1 + imagesAndAnswers.GetLength(0)));
             commentRange.Font.Italic = true;
+
+            Excel.Range answerRange = excWS.get_Range(GetCell(5, 2), GetCell(5, 1 + imagesAndAnswers.GetLength(0)));
+            Excel.Range regionRange = excWS.get_Range(GetCell(3, 2), GetCell(3, 1 + imagesAndAnswers.GetLength(0)));
+            Excel.Range imageRange = excWS.get_Range(GetCell(1, 2), GetCell(1, 1 + imagesAndAnswers.GetLength(0)));
+            imageRange.Interior.Color = Color.LightGreen;
+            regionRange.Interior.Color = Color.LightGreen;
+            answerRange.Interior.Color = Color.LightGreen;
+            dateRange.Interior.Color = Color.LightGreen;
         }
 
         private string GetCell(int x, int y)
